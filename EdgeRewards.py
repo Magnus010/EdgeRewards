@@ -20,19 +20,20 @@ def kill_edge():
 
 def sleepy_time():
     time_to_sleep = random.randrange(30, 600)
+    print("Sleeping for " + time_to_sleep + " seconds.")
     time.sleep(time_to_sleep)
 
 
 if __name__ == "__main__":
     dictionary = open("words.txt").read().splitlines()
-
     edge_string = "start shell:AppsFolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge"
 
     num_of_searches = int(150 / 5)
 
-    print("Running Edge Rewards")
+    print("Running Edge Rewards.")
     for search in range(0, num_of_searches):
         sleepy_time()
+        print("Search #: " + search)
         num_of_terms = random.randrange(1, 5)
         search_terms = random.sample(dictionary, num_of_terms)
         search_string = edge_string

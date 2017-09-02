@@ -18,6 +18,11 @@ def kill_edge():
         os.popen(taskkill_command + pid)
 
 
+def sleepy_time():
+    time_to_sleep = random.randrange(30, 600)
+    time.sleep(time_to_sleep)
+
+
 if __name__ == "__main__":
     dictionary = open("words.txt").read().splitlines()
 
@@ -25,9 +30,9 @@ if __name__ == "__main__":
 
     num_of_searches = int(150 / 5)
 
+    print("Running Edge Rewards")
     for search in range(0, num_of_searches):
-        time_to_sleep = random.randrange(30, 600)
-        time.sleep(time_to_sleep)
+        sleepy_time()
         num_of_terms = random.randrange(1, 5)
         search_terms = random.sample(dictionary, num_of_terms)
         search_string = edge_string
@@ -35,4 +40,5 @@ if __name__ == "__main__":
             search_string += " " + term
         os.popen(search_string)
 
+    sleepy_time()
     kill_edge()

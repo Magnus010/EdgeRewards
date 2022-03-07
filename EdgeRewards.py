@@ -24,8 +24,10 @@ def sleepy_time():
     time.sleep(time_to_sleep)
 
 
-if __name__ == "__main__":
-    dictionary = open("words.txt").read().splitlines()
+def main():
+    filename = os.path.join(os.path.dirname(os.path.realpath(__file__)), "words.txt")
+    with open(filename) as f:
+        dictionary = f.read().splitlines()
     edge_string = "start shell:AppsFolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge"
     url = "https://www.bing.com/search?q="
 
@@ -50,3 +52,7 @@ if __name__ == "__main__":
 
     sleepy_time()
     kill_edge()
+
+
+if __name__ == "__main__":
+    main()

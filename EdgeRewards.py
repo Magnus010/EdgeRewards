@@ -7,7 +7,7 @@ import subprocess
 def kill_edge():
     tasklist_output = subprocess.check_output('tasklist').splitlines()
 
-    matches = [s for s in tasklist_output if b'Edge.exe' in s]
+    matches = [s for s in tasklist_output if b'msedge.exe' in s]
 
     pid_list = []
     for result in matches:
@@ -28,10 +28,10 @@ def main():
     filename = os.path.join(os.path.dirname(os.path.realpath(__file__)), "words.txt")
     with open(filename) as f:
         dictionary = f.read().splitlines()
-    edge_string = "start shell:AppsFolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge"
+    edge_string = '"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"'
     url = "https://www.bing.com/search?q="
 
-    num_of_searches = int(150 / 5)
+    num_of_searches = int(150 / 5) + 5
 
     print("Running Edge Rewards.")
     for search in range(0, num_of_searches):
